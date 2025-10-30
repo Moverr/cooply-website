@@ -11,6 +11,8 @@ sudo docker stop $CONTAINER_NAME 2>/dev/null
 echo "Removing any existing container named $CONTAINER_NAME..."
 sudo docker rm $CONTAINER_NAME 2>/dev/null
 
+sudo docker build -t $IMAGE_NAME .
+
 echo "Running new container $CONTAINER_NAME..."
 sudo docker run -d -p $PORT:80 --name $CONTAINER_NAME $IMAGE_NAME
 
