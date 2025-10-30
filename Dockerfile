@@ -1,12 +1,13 @@
 FROM nginx:alpine
 
-# Copy everything into Nginx public folder
-COPY index.html /usr/share/nginx/html/index.html
-COPY css /usr/share/nginx/html/css
-COPY js /usr/share/nginx/html/js
-COPY img /usr/share/nginx/html/img
-COPY fonts /usr/share/nginx/html/fonts
+# Set working directory inside container
+WORKDIR /usr/share/nginx/html
 
+# Copy everything from current folder into Nginx public folder
+COPY . .
+
+# Expose port 80
 EXPOSE 80
 
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
