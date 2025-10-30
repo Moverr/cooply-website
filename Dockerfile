@@ -1,11 +1,12 @@
-# Use Nginx official image
 FROM nginx:alpine
 
-# Copy your HTML file into Nginx's default public folder
+# Copy everything into Nginx public folder
 COPY index.html /usr/share/nginx/html/index.html
+COPY css /usr/share/nginx/html/css
+COPY js /usr/share/nginx/html/js
+COPY img /usr/share/nginx/html/img
+COPY fonts /usr/share/nginx/html/fonts
 
-# Expose port 80
 EXPOSE 80
 
-# Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
