@@ -1,0 +1,7 @@
+docker run -d -p 8080:80 --name cooply-web cooply-html
+
+docker build -t cooply-html .
+
+
+docker run -d -p 8081:80 --name cooply-web cooply-html
+
